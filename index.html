@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="">
+    <title>Huni Furniture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --warm: #726a63;
+            --warm-light: #8a827a;
+            --warm-lighter: #c4bfb9;
+            --warm-pale: #ede9e4;
+            --white: #ffffff;
+            --pure: #ffffff;
+            --accent: #3d3830;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            background: var(--white);
+            color: var(--warm);
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 4rem;
+            mix-blend-mode: normal;
+            background: rgba(250, 249, 247, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 0.5px solid rgba(90, 83, 77, 0.12);
+            transition: padding 0.4s ease;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            color: var(--warm);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 30px;
+            width: auto;
+        }
+
+        .logo span {
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        nav ul a {
+            text-decoration: none;
+            color: var(--warm-light);
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav ul a:hover {
+            color: var(--warm);
+        }
+
+        .nav-cta {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--white) !important;
+            background: var(--warm);
+            padding: 0.7rem 1.8rem;
+            border-radius: 0;
+            transition: background 0.3s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent) !important;
+            color: var(--white) !important;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 80px;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 4rem 6rem 4rem;
+            position: relative;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.68rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--warm-light);
+            margin-bottom: 2rem;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.5rem, 6vw, 6rem);
+            font-weight: 300;
+            line-height: 1.05;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--warm);
+        }
+
+        .hero-desc {
+            font-size: 0.9rem;
+            line-height: 1.9;
+            color: var(--warm-light);
+            max-width: 380px;
+            margin-bottom: 3rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .btn-primary {
+            background: var(--warm);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            transition: background 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-text {
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--warm-light);
+            text-decoration: none;
+            border-bottom: 0.5px solid var(--warm-lighter);
+            padding-bottom: 2px;
+            transition: color 0.3s, border-color 0.3s;
+        }
+
+        .btn-text:hover {
+            color: var(--warm);
+            border-color: var(--warm);
+        }
+
+        .hero-right {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.85);
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: 3rem;
+            left: -1rem;
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-left: 2px solid var(--warm);
+        }
+
+        .hero-badge .num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 300;
+            color: var(--warm);
+            display: block;
+            line-height: 1;
+        }
+
+        .hero-badge .label {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--warm-light);
+            margin-top: 0.4rem;
+            display: block;
+        }
+
+        /* MARQUEE */
+        .marquee-strip {
+            background: var(--warm);
+            padding: 1rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-inner {
+            display: inline-flex;
+            animation: marquee 25s linear infinite;
+            gap: 0;
+        }
+
+        .marquee-item {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(250, 249, 247, 0.7);
+            padding: 0 2.5rem;
+        }
+
+        .marquee-dot {
+            color: rgba(250, 249, 247, 0.3);
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* SECTION HEADER */
+        .section-header {
+            text-align: center;
+            padding: 5rem 4rem 3rem;
+        }
+
+        .section-eyebrow {
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--warm-light);
+            margin-bottom: 1.2rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            color: var(--accent);
+            line-height: 1.1;
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--warm);
+        }
+
+        /* PRODUCT GRID */
+        .products {
+            padding: 2rem 4rem 6rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            cursor: pointer;
+        }
+
+        .product-img {
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: var(--warm-pale);
+            margin-bottom: 1.2rem;
+            position: relative;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease, filter 0.4s;
+            filter: saturate(0.8);
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.04);
+            filter: saturate(1);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--warm);
+            color: var(--white);
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.8rem;
+        }
+
+        .product-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+
+        .product-mat {
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-light);
+            margin-bottom: 0.8rem;
+        }
+
+        .product-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--warm);
+        }
+
+        /* PHILOSOPHY */
+        .philosophy {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 70vh;
+            margin: 2rem 4rem;
+        }
+
+        .phil-img {
+            aspect-ratio: 1/1;
+            overflow: hidden;
+        }
+
+        .phil-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.75);
+        }
+
+        .phil-text {
+            background: var(--warm-pale);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5rem;
+        }
+
+        .phil-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--accent);
+            line-height: 1.3;
+            margin-bottom: 2.5rem;
+        }
+
+        .phil-body {
+            font-size: 0.88rem;
+            line-height: 2;
+            color: var(--warm-light);
+            margin-bottom: 2.5rem;
+        }
+
+        .phil-divider {
+            width: 3rem;
+            height: 1px;
+            background: var(--warm-light);
+            margin-bottom: 2.5rem;
+        }
+
+        /* COLLECTION FEATURE */
+        .collection {
+            padding: 4rem 4rem;
+        }
+
+        .coll-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+        }
+
+        .coll-header .section-header {
+            text-align: left;
+            padding: 0;
+        }
+
+        .view-all {
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--warm-light);
+            text-decoration: none;
+            border-bottom: 0.5px solid var(--warm-lighter);
+            padding-bottom: 2px;
+            transition: color 0.3s;
+        }
+
+        .view-all:hover {
+            color: var(--warm);
+        }
+
+        .coll-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 1.5rem;
+        }
+
+        .coll-feature {
+            grid-column: 1;
+            grid-row: 1 / 3;
+        }
+
+        .coll-feature .product-img {
+            aspect-ratio: 1/1;
+        }
+
+        .coll-item .product-img {
+            aspect-ratio: 1/1;
+        }
+
+        /* STATS */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 0.5px solid rgba(90, 83, 77, 0.15);
+            border-bottom: 0.5px solid rgba(90, 83, 77, 0.15);
+            margin: 4rem 4rem;
+        }
+
+        .stat-item {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-right: 0.5px solid rgba(90, 83, 77, 0.15);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--warm);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--warm-light);
+        }
+
+        /* LIFESTYLE GRID */
+        .lifestyle {
+            padding: 2rem 4rem 6rem;
+        }
+
+        .life-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 1fr;
+            gap: 1.2rem;
+        }
+
+        .life-item {
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .life-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.75);
+            transition: transform 0.7s ease, filter 0.4s;
+        }
+
+        .life-item:hover img {
+            transform: scale(1.05);
+            filter: saturate(1);
+        }
+
+        .life-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(61, 56, 48, 0.5) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .life-item:hover .life-overlay {
+            opacity: 1;
+        }
+
+        .life-caption {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(250, 249, 247, 0.9);
+        }
+
+        /* TESTIMONIAL */
+        .testimonial {
+            background: var(--warm);
+            padding: 7rem 4rem;
+            text-align: center;
+        }
+
+        .test-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            font-weight: 300;
+            font-style: italic;
+            color: rgba(250, 249, 247, 0.95);
+            max-width: 780px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.4;
+        }
+
+        .test-author {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(250, 249, 247, 0.5);
+        }
+
+        /* MATERIAL */
+        .material {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin: 4rem 4rem;
+            border: 0.5px solid rgba(90, 83, 77, 0.15);
+        }
+
+        .mat-item {
+            padding: 2.5rem 2rem;
+            border-right: 0.5px solid rgba(90, 83, 77, 0.15);
+            text-align: center;
+        }
+
+        .mat-item:last-child {
+            border-right: none;
+        }
+
+        .mat-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1.2rem;
+            background: var(--warm-pale);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mat-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--warm);
+            fill: none;
+            stroke-width: 1.2;
+        }
+
+        .mat-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .mat-desc {
+            font-size: 0.78rem;
+            line-height: 1.7;
+            color: var(--warm-light);
+        }
+
+        /* CTA BAND */
+        .cta-band {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin: 0 4rem 6rem;
+        }
+
+        .cta-img {
+            aspect-ratio: 1/1;
+            overflow: hidden;
+        }
+
+        .cta-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.8);
+        }
+
+        .cta-content {
+            background: var(--warm-pale);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 5rem;
+            gap: 1.5rem;
+        }
+
+        .cta-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 300;
+            color: var(--accent);
+            line-height: 1.15;
+        }
+
+        .cta-title em {
+            font-style: italic;
+            color: var(--warm);
+        }
+
+        .cta-sub {
+            font-size: 0.85rem;
+            line-height: 1.9;
+            color: var(--warm-light);
+            max-width: 360px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--accent);
+            color: rgba(250, 249, 247, 0.6);
+            padding: 5rem 4rem 2.5rem;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 0.5px solid rgba(250, 249, 247, 0.1);
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: rgba(250, 249, 247, 0.9);
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-tagline {
+            font-size: 0.78rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h5 {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(250, 249, 247, 0.4);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul a {
+            text-decoration: none;
+            color: rgba(250, 249, 247, 0.6);
+            font-size: 0.82rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul a:hover {
+            color: rgba(250, 249, 247, 0.9);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-copy {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: rgba(250, 249, 247, 0.3);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.15s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.45s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.6s;
+        }
+
+        /* GALLERY MASONRY */
+        .gallery {
+            padding: 2rem 4rem 5rem;
+        }
+
+        .gallery-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+        }
+
+        .masonry {
+            columns: 4;
+            column-gap: 1rem;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            filter: saturate(0.75);
+            transition: transform 0.6s ease, filter 0.4s;
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.04);
+            filter: saturate(1);
+        }
+
+        .masonry-item .life-overlay {
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .masonry-item:hover .life-overlay {
+            opacity: 1;
+        }
+
+        /* HORIZONTAL PHOTO STRIP */
+        .photo-strip {
+            padding: 0 0 5rem;
+            overflow: hidden;
+        }
+
+        .photo-strip .section-header {
+            padding-left: 4rem;
+            text-align: left;
+        }
+
+        .strip-scroll {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding: 0 4rem 1rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--warm-lighter) transparent;
+        }
+
+        .strip-scroll::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        .strip-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .strip-scroll::-webkit-scrollbar-thumb {
+            background: var(--warm-lighter);
+        }
+
+        .strip-item {
+            flex: 0 0 280px;
+            scroll-snap-align: start;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .strip-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.75);
+            transition: transform 0.6s ease, filter 0.4s;
+        }
+
+        .strip-item:hover img {
+            transform: scale(1.05);
+            filter: saturate(1);
+        }
+
+        .strip-item .life-overlay {
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .strip-item:hover .life-overlay {
+            opacity: 1;
+        }
+
+        /* FOOTER SOCIAL */
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.65rem 1.2rem;
+            border: 0.5px solid rgba(250, 249, 247, 0.2);
+            text-decoration: none;
+            color: rgba(250, 249, 247, 0.7);
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: background 0.3s, border-color 0.3s, color 0.3s;
+            white-space: nowrap;
+        }
+
+        .social-btn:hover {
+            background: rgba(250, 249, 247, 0.08);
+            border-color: rgba(250, 249, 247, 0.4);
+            color: rgba(250, 249, 247, 0.95);
+        }
+
+        .social-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .footer-new {
+            background: var(--accent);
+            color: rgba(250, 249, 247, 0.6);
+            padding: 5rem 4rem 2.5rem;
+        }
+
+        .footer-new-inner {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 5rem;
+            margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 0.5px solid rgba(250, 249, 247, 0.1);
+        }
+
+        .footer-brand .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 300;
+            color: rgba(250, 249, 247, 0.9);
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-brand .footer-tagline {
+            font-size: 0.82rem;
+            line-height: 1.9;
+            color: rgba(250, 249, 247, 0.5);
+            max-width: 340px;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-contact-area h5 {
+            font-size: 0.62rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: rgba(250, 249, 247, 0.35);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: rgba(250, 249, 247, 0.65);
+            font-size: 0.82rem;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            border-bottom: 0.5px solid rgba(250, 249, 247, 0.07);
+        }
+
+        .contact-link:last-child {
+            border-bottom: none;
+        }
+
+        .contact-link:hover {
+            color: rgba(250, 249, 247, 0.95);
+        }
+
+        .contact-link svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            flex-shrink: 0;
+            opacity: 0.6;
+        }
+
+        .contact-link:hover svg {
+            opacity: 1;
+        }
+
+        .contact-platform {
+            font-size: 0.62rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(250, 249, 247, 0.3);
+            margin-left: auto;
+        }
+
+        .footer-new-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--white);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--warm-lighter);
+        }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 1px;
+            background: var(--warm);
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            z-index: 99;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        .mobile-menu a.mob-cta {
+            font-family: 'Jost', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            background: var(--warm);
+            color: var(--white);
+            padding: 1rem 3rem;
+            font-weight: 300;
+        }
+
+        /* TABLET — 1024px */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+
+            nav ul {
+                gap: 2rem;
+            }
+
+            .hero {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-left {
+                padding: 4rem 2.5rem;
+            }
+
+            .products {
+                padding: 2rem 2rem 4rem;
+            }
+
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.2rem;
+            }
+
+            .philosophy {
+                margin: 2rem 2rem;
+            }
+
+            .phil-text {
+                padding: 3rem;
+            }
+
+            .stats {
+                margin: 3rem 2rem;
+            }
+
+            .stat-item {
+                padding: 2rem 1rem;
+            }
+
+            .stat-num {
+                font-size: 2.2rem;
+            }
+
+            .collection {
+                padding: 3rem 2rem;
+            }
+
+            .coll-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .coll-feature {
+                grid-column: 1;
+                grid-row: auto;
+            }
+
+            .lifestyle {
+                padding: 2rem 2rem 4rem;
+            }
+
+            .life-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.8rem;
+            }
+
+            .material {
+                margin: 3rem 2rem;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .mat-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .mat-item:nth-child(3) {
+                border-top: 0.5px solid rgba(90, 83, 77, 0.15);
+            }
+
+            .mat-item:nth-child(4) {
+                border-top: 0.5px solid rgba(90, 83, 77, 0.15);
+                border-right: none;
+            }
+
+            .cta-band {
+                margin: 0 2rem 4rem;
+            }
+
+            .cta-content {
+                padding: 3rem;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+            }
+
+            footer {
+                padding: 4rem 2rem 2rem;
+            }
+
+            .footer-new {
+                padding: 4rem 2rem 2rem;
+            }
+
+            .footer-new-inner {
+                gap: 3rem;
+            }
+
+            .gallery {
+                padding: 1.5rem 2rem 4rem;
+            }
+
+            .masonry {
+                columns: 3;
+            }
+
+            .photo-strip .section-header {
+                padding-left: 2rem;
+            }
+
+            .strip-scroll {
+                padding: 0 2rem 1rem;
+            }
+        }
+
+        /* MOBILE — 768px */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.2rem 1.5rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            /* HERO */
+            .hero {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto;
+                min-height: auto;
+                padding-top: 70px;
+            }
+
+            .hero-left {
+                padding: 3rem 1.5rem 2.5rem;
+                order: 2;
+            }
+
+            .hero-right {
+                order: 1;
+                height: 55vw;
+                min-height: 260px;
+            }
+
+            .hero-right img {
+                height: 100%;
+            }
+
+            .hero-badge {
+                bottom: 1.5rem;
+                left: 1rem;
+                padding: 1rem 1.2rem;
+            }
+
+            .hero-badge .num {
+                font-size: 1.8rem;
+            }
+
+            /* SECTION */
+            .section-header {
+                padding: 3rem 1.5rem 2rem;
+            }
+
+            /* PRODUCTS */
+            .products {
+                padding: 1rem 1.5rem 3rem;
+            }
+
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            /* PHILOSOPHY */
+            .philosophy {
+                grid-template-columns: 1fr;
+                margin: 0;
+            }
+
+            .phil-img {
+                aspect-ratio: 4/3;
+            }
+
+            .phil-text {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .phil-quote {
+                font-size: 1.5rem;
+            }
+
+            /* STATS */
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                margin: 2rem 1.5rem;
+            }
+
+            .stat-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat-item:nth-child(3) {
+                border-top: 0.5px solid rgba(90, 83, 77, 0.15);
+            }
+
+            .stat-item:nth-child(4) {
+                border-top: 0.5px solid rgba(90, 83, 77, 0.15);
+                border-right: none;
+            }
+
+            .stat-item {
+                padding: 1.8rem 1rem;
+            }
+
+            /* COLLECTION */
+            .collection {
+                padding: 2rem 1.5rem;
+            }
+
+            .coll-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .coll-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .coll-feature {
+                grid-column: 1 / 3;
+            }
+
+            .coll-item:last-child {
+                grid-column: auto;
+            }
+
+            /* LIFESTYLE */
+            .lifestyle {
+                padding: 1rem 1.5rem 3rem;
+            }
+
+            .life-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+
+            .section-header[style] {
+                padding-left: 0 !important;
+            }
+
+            /* TESTIMONIAL */
+            .testimonial {
+                padding: 4rem 1.5rem;
+            }
+
+            /* MATERIAL */
+            .material {
+                margin: 2rem 1.5rem;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            /* CTA */
+            .cta-band {
+                grid-template-columns: 1fr;
+                margin: 0 1.5rem 3rem;
+            }
+
+            .cta-img {
+                aspect-ratio: 4/3;
+            }
+
+            .cta-content {
+                padding: 2.5rem 1.5rem;
+            }
+
+            /* FOOTER */
+            footer {
+                padding: 3rem 1.5rem 2rem;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .footer-new {
+                padding: 3rem 1.5rem 2rem;
+            }
+
+            .footer-new-inner {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .footer-social {
+                flex-wrap: wrap;
+            }
+
+            .footer-new-bottom {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            /* GALLERY */
+            .gallery {
+                padding: 1.5rem 1.5rem 3rem;
+            }
+
+            .masonry {
+                columns: 2;
+            }
+
+            .photo-strip .section-header {
+                padding-left: 1.5rem;
+            }
+
+            .strip-scroll {
+                padding: 0 1.5rem 1rem;
+            }
+
+            .strip-item {
+                flex: 0 0 200px;
+            }
+        }
+
+        /* SMALL MOBILE — 480px */
+        @media (max-width: 480px) {
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .life-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.6rem;
+            }
+
+            .coll-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .coll-feature {
+                grid-column: 1;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .material {
+                grid-template-columns: 1fr;
+            }
+
+            .mat-item {
+                border-right: none;
+                border-bottom: 0.5px solid rgba(90, 83, 77, 0.15);
+            }
+
+            .mat-item:last-child {
+                border-bottom: none;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.2rem;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#koleksi" onclick="closeMobile()">Collections</a>
+        <a href="#filosofi" onclick="closeMobile()">Philosophy</a>
+        <a href="#material" onclick="closeMobile()">Materials</a>
+        <a href="#" class="mob-cta" onclick="closeMobile()">Contact Us</a>
+    </div>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html" class="logo"><img src="assets/HUNI_Primary_Brown_Mono_Transparent (1).png"
+                alt="Huni Logo"></a>
+        <ul>
+            <li><a href="#koleksi">Collections</a></li>
+            <li><a href="#filosofi">Philosophy</a></li>
+            <li><a href="#material">Materials</a></li>
+            <li><a href="https://wa.me/6285190645445" class="nav-cta">Contact Us</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-left">
+            <p class="hero-eyebrow fade-up">Japandi Furniture Specialist — Est. 2019</p>
+            <h1 class="hero-title fade-up delay-1">Tranquility<br>in Every<br><em>Form</em></h1>
+            <p class="hero-desc fade-up delay-2">A blend of Japanese wabi-sabi and Scandinavian functionality. Each
+                piece is handcrafted using select wood that brings serenity to your space.</p>
+            <div class="hero-actions fade-up delay-3">
+                <a href="#koleksi" class="btn-primary">Explore Collections</a>
+                <a href="#filosofi" class="btn-text">Our Story</a>
+            </div>
+        </div>
+        <div class="hero-right fade-up delay-2">
+            <img src="/Huni/assets/Forme Armchair.png" alt="Japandi Living Room">
+            <div class="hero-badge">
+                <span class="num">200+</span>
+                <span class="label">Exclusive Designs</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-strip">
+        <div class="marquee-inner">
+            <span class="marquee-item">Teak Wood</span><span class="marquee-item marquee-dot">·</span>
+            <span class="marquee-item">Handcrafted</span><span class="marquee-item marquee-dot">·</span>
+            <span class="marquee-item">Wabi-Sabi</span><span class="marquee-item marquee-dot">·</span>
+            <span class="marquee-item">Natural Materials</span><span class="marquee-item marquee-dot">·</span>
+            <span class="marquee-item">Timeless Design</span><span class="marquee-item marquee-dot">·</span>
+            <span class="marquee-item">Minimalist Living</span><span class="marquee-item marquee-dot">·</span>
+            <span class="marquee-item">Teak Wood</span><span class="marquee-item marquee-dot">·</span>
+            <span class="marquee-item">Handcrafted</span><span class="marquee-item marquee-dot">·</span>
+            <span class="marquee-item">Wabi-Sabi</span><span class="marquee-item marquee-dot">·</span>
+            <span class="marquee-item">Natural Materials</span><span class="marquee-item marquee-dot">·</span>
+            <span class="marquee-item">Timeless Design</span><span class="marquee-item marquee-dot">·</span>
+            <span class="marquee-item">Minimalist Living</span><span class="marquee-item marquee-dot">·</span>
+        </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <section id="koleksi">
+        <div class="section-header">
+            <p class="section-eyebrow">Featured Collections</p>
+            <h2 class="section-title">Designed to be <em>Lived In</em></h2>
+        </div>
+        <div class="products">
+            <div class="grid-4">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="/Huni/assets/Doni.png" alt="Guest Chair">
+                        <span class="product-tag">New</span>
+                    </div>
+                    <p class="product-name">Doni Chair</p>
+                    <p class="product-mat">Mahogany Wood · Linen</p>
+                    <p class="product-price">$100</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="/Huni/assets/Xajul.png" alt="Coffee Table">
+                    </div>
+                    <p class="product-name">Xajul Coffee Table</p>
+                    <p class="product-mat">Teak Wood · Solid</p>
+                    <p class="product-price">$120</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="/Huni/assets/Wisbon Stool.png" alt="Sofa">
+                        <span class="product-tag">Popular</span>
+                    </div>
+                    <p class="product-name">Wisbon Bar Stool</p>
+                    <p class="product-mat">Teak Wood · Solid</p>
+                    <p class="product-price">$180</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="/Huni/assets/Calva.png" alt="Wall Shelf">
+                    </div>
+                    <p class="product-name">Calva Bench</p>
+                    <p class="product-mat">Teak Wood · Solid</p>
+                    <p class="product-price">$120</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section id="filosofi" class="philosophy">
+        <div class="phil-img">
+            <img src="/Huni/assets/Velle Table.png" alt="Japandi Philosophy">
+        </div>
+        <div class="phil-text">
+            <div class="phil-divider"></div>
+            <p class="section-eyebrow">Our Philosophy</p>
+            <blockquote class="phil-quote">"True beauty lies in simplicity, carefully chosen."
+            </blockquote>
+            <p class="phil-body">We believe home is a sanctuary for the soul. Every Huni furniture is designed following
+                the principle of ma—meaningful empty space—and hygge—warm comfort. Two philosophies meeting in perfect
+                harmony.</p>
+            <p class="phil-body">Our craftsmen spend months completing each piece, ensuring every joint, every surface
+                speaks to our dedication and love for natural materials.</p>
+            <a href="#" class="btn-primary" style="align-self:flex-start;">Our Story</a>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat-item">
+            <span class="stat-num">12</span>
+            <span class="stat-label">Years of Expertise</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">200+</span>
+            <span class="stat-label">Exclusive Designs</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">5,000+</span>
+            <span class="stat-label">Happy Homes</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Natural Materials</span>
+        </div>
+    </div>
+
+    <!-- COLLECTION FEATURE -->
+    <section class="collection" id="koleksi2">
+        <div class="coll-header">
+            <div class="section-header">
+                <p class="section-eyebrow">Bedrooms & Living Spaces</p>
+                <h2 class="section-title">This Season's <em>Collection</em></h2>
+            </div>
+            <a href="#" class="view-all">View All →</a>
+        </div>
+        <div class="coll-grid">
+            <div class="coll-feature">
+                <div class="product-img" style="aspect-ratio:1/1;">
+                    <img src="/Huni/assets/Vitto.png" alt="Master Bed">
+                    <span class="product-tag">Feature</span>
+                </div>
+                <p class="product-name">Vitto Chair</p>
+                <p class="product-mat">Solid Teak Wood · Fabric</p>
+                <p class="product-price">$100</p>
+            </div>
+            <div class="coll-item">
+                <div class="product-img">
+                    <img src="/Huni/assets/Dora.png" alt="Nightstand">
+                </div>
+                <p class="product-name">Dora Chair</p>
+                <p class="product-mat">Solid Mahogany Wood</p>
+                <p class="product-price">$100</p>
+            </div>
+            <div class="coll-item">
+                <div class="product-img">
+                    <img src="/Huni/assets/Maya.png" alt="Cabinet">
+                </div>
+                <p class="product-name">Maya Chair</p>
+                <p class="product-mat">Solid Teak Wood</p>
+                <p class="product-price">$100</p>
+            </div>
+            <div class="coll-item">
+                <div class="product-img">
+                    <img src="/Huni/assets/Wink.png" alt="Lamp">
+                </div>
+                <p class="product-name">Wink Chair</p>
+                <p class="product-mat">Solid Teak Wood · Natural</p>
+                <p class="product-price">$100</p>
+            </div>
+            <div class="coll-item" style="grid-column:3;">
+                <div class="product-img">
+                    <img src="/Huni/assets/Sovia.png" alt="Rug">
+                </div>
+                <p class="product-name">Sovia Chair</p>
+                <p class="product-mat">Solid Teak Wood · Fabric</p>
+                <p class="product-price">$100</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIFESTYLE GRID -->
+    <section class="lifestyle">
+        <div class="section-header" style="text-align:left; padding-left:0; padding-top:2rem;">
+            <p class="section-eyebrow">Dining Table Inspiration</p>
+            <h2 class="section-title">Every Meeting has a <em>Meaning</em></h2>
+        </div>
+        <div class="life-grid">
+            <div class="life-item">
+                <img src="/Huni/assets/Anita Table.png" alt="Living Room">
+                <div class="life-overlay"><span class="life-caption">Anita Table</span></div>
+            </div>
+            <div class="life-item">
+                <img src="/Huni/assets/Arto Table.png" alt="Kitchen">
+                <div class="life-overlay"><span class="life-caption">Arto Table</span></div>
+            </div>
+            <div class="life-item">
+                <img src="/Huni/assets/Elaris Table.png" alt="Dining Room">
+                <div class="life-overlay"><span class="life-caption">Elaris Table</span></div>
+            </div>
+            <div class="life-item">
+                <img src="/Huni/assets/Juju Table.png" alt="Bathroom">
+                <div class="life-overlay"><span class="life-caption">Juju Table</span></div>
+            </div>
+            <div class="life-item">
+                <img src="/Huni/assets/Ligna Table.png" alt="Home Office">
+                <div class="life-overlay"><span class="life-caption">Ligna Table</span></div>
+            </div>
+            <div class="life-item">
+                <img src="/Huni/assets/Lisca Table.png" alt="Bedroom">
+                <div class="life-overlay"><span class="life-caption">Lisca Table</span></div>
+            </div>
+            <div class="life-item">
+                <img src="/Huni/assets/Salsa Table.png" alt="Garden">
+                <div class="life-overlay"><span class="life-caption">Salsa Table</span></div>
+            </div>
+            <div class="life-item">
+                <img src="/Huni/assets/Velle Table.png" alt="Detail">
+                <div class="life-overlay"><span class="life-caption">Velle Table</span></div>
+            </div>
+            <div class="life-item">
+                <img src="/Huni/assets/Maison Table.png" alt="Exterior">
+                <div class="life-overlay"><span class="life-caption">Maison Table</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MATERIAL -->
+    <section id="material">
+        <div class="section-header">
+            <p class="section-eyebrow">Premium Materials</p>
+            <h2 class="section-title">Materials with <em>Soul</em></h2>
+        </div>
+        <div class="material">
+            <div class="mat-item">
+                <div class="mat-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" />
+                    </svg>
+                </div>
+                <p class="mat-name">Teak Wood</p>
+                <p class="mat-desc">Sustainably harvested from managed forests in Central Java</p>
+            </div>
+            <div class="mat-item">
+                <div class="mat-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                        <line x1="9" y1="9" x2="9.01" y2="9" />
+                        <line x1="15" y1="9" x2="15.01" y2="9" />
+                    </svg>
+                </div>
+                <p class="mat-name">Mahogany Wood</p>
+                <p class="mat-desc">Hard and durable, with natural grain that grows more beautiful with age</p>
+            </div>
+            <div class="mat-item">
+                <div class="mat-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                </div>
+                <p class="mat-name">Paints</p>
+                <p class="mat-desc">The most eco-friendly material</p>
+            </div>
+            <div class="mat-item">
+                <div class="mat-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.14 1.21 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                    </svg>
+                </div>
+                <p class="mat-name">Linen & Wool</p>
+                <p class="mat-desc">Soft natural upholstery, breathable, and increasingly beautiful with age</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial">
+        <blockquote class="test-quote">"Every morning, I sit in my Huni chair with tea, and this space feels like
+            meditation. This is what I've been searching for all these years."</blockquote>
+        <p class="test-author">— Anindita R., Jakarta · Customer since 2021</p>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band">
+        <div class="cta-img">
+            <img src="/Huni/assets/Rompis.png" alt="Consultation">
+        </div>
+        <div class="cta-content">
+            <p class="section-eyebrow">Design Consultation</p>
+            <h2 class="cta-title">Create Your<br><em>Dream Home</em></h2>
+            <p class="cta-sub">Our design team is ready to help you create a peaceful and meaningful space. Free
+                consultation, no commitment.</p>
+            <a href="https://wa.me/6285190645445" class="btn-primary">Start Consultation</a>
+        </div>
+    </section>
+
+    <!-- GALLERY MASONRY -->
+    <section class="gallery" id="galeri">
+        <div class="gallery-header">
+            <div>
+                <p class="section-eyebrow">Gallery</p>
+                <h2 class="section-title">Comfort in <em>Extra</em></h2>
+            </div>
+            <a href="#" class="view-all">View All →</a>
+        </div>
+        <div class="masonry">
+            <div class="masonry-item">
+                <img src="/Huni/assets/achair/Elliot Armchair.png"
+                    alt="Minimalist teak wood armchair Elliot with clean lines and natural finish" loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Elliot Armchair</span></div>
+            </div>
+            <div class="masonry-item">
+                <img src="/Huni/assets/achair/Estilo Armchair.png"
+                    alt="Modern Japandi style armchair Estilo with walnut wood frame and linen upholstery"
+                    loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Estilo Armchair</span></div>
+            </div>
+            <div class="masonry-item">
+                <img src="/Huni/assets/achair/Forme Armchair.png"
+                    alt="Contemporary armchair Forme featuring organic shapes and sustainable bamboo construction"
+                    loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Forme Armchair</span></div>
+            </div>
+            <div class="masonry-item">
+                <img src="/Huni/assets/achair/Itania Armchair.png"
+                    alt="Elegant oak wood armchair Itania with handcrafted details and timeless design" loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Itania Armchair</span></div>
+            </div>
+            <div class="masonry-item">
+                <img src="/Huni/assets/achair/Karen Armchair.png"
+                    alt="Comfortable armchair Karen made from solid walnut wood with wool upholstery" loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Karen Armchair</span></div>
+            </div>
+            <div class="masonry-item">
+                <img src="/Huni/assets/achair/Kelly Armchair.png"
+                    alt="Minimalist armchair Kelly with teak wood construction and natural linen cushions"
+                    loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Kelly Armchair</span></div>
+            </div>
+            <div class="masonry-item">
+                <img src="/Huni/assets/achair/Leyah Armchair.png"
+                    alt="Scandinavian style armchair Leyah featuring oak wood frame and organic wool fabric"
+                    loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Leyah Armchair</span></div>
+            </div>
+            <div class="masonry-item">
+                <img src="/Huni/assets/achair/Maren Armchair.png"
+                    alt="Handcrafted armchair Maren with bamboo accents and sustainable material construction"
+                    loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Maren Armchair</span></div>
+            </div>
+            <div class="masonry-item">
+                <img src="/Huni/assets/achair/Melbury Armchair.png"
+                    alt="Classic armchair Melbury made from premium walnut wood with artisanal craftsmanship"
+                    loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Melbury Armchair</span></div>
+            </div>
+            <div class="masonry-item">
+                <img src="/Huni/assets/achair/Modena Armchair.png"
+                    alt="Modern armchair Modena combining Japanese minimalism with Scandinavian functionality"
+                    loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Modena Armchair</span></div>
+            </div>
+            <div class="masonry-item">
+                <img src="/Huni/assets/achair/Viona Armchair.png"
+                    alt="Elegant armchair Viona with natural wood grain and premium upholstery materials"
+                    loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Viona Armchair</span></div>
+            </div>
+            <div class="masonry-item">
+                <img src="/Huni/assets/achair/Zenith Armchair.png"
+                    alt="Premium armchair Zenith featuring hand-finished teak wood and artisanal design" loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Zenith Armchair</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HORIZONTAL PHOTO STRIP -->
+    <section class="photo-strip">
+        <div class="section-header">
+            <p class="section-eyebrow">Room Inspiration</p>
+            <h2 class="section-title">Scroll for <em>More Ideas</em></h2>
+        </div>
+        <div class="strip-scroll">
+            <div class="strip-item">
+                <img src="/Huni/assets/bstool/Hiroshima Stool.png"
+                    alt="Minimalist Hiroshima stool with teak wood construction and clean Scandinavian design"
+                    loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Hiroshima Stool</span></div>
+            </div>
+            <div class="strip-item">
+                <img src="/Huni/assets/bench/Tara.png"
+                    alt="Elegant Tara bench made from solid walnut wood with handcrafted finish" loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Tara Bench</span></div>
+            </div>
+            <div class="strip-item">
+                <img src="/Huni/assets/bstool/Gala Stool.png"
+                    alt="Contemporary Gala stool featuring bamboo construction and organic materials" loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Gala Stool</span></div>
+            </div>
+            <div class="strip-item">
+                <img src="/Huni/assets/bench/Calva.png"
+                    alt="Modern Calva bench with oak wood frame and sustainable material construction" loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Calva Bench</span></div>
+            </div>
+            <div class="strip-item">
+                <img src="/Huni/assets/bstool/Dora Stool.png"
+                    alt="Classic Dora stool made from premium teak wood with artisanal craftsmanship" loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Dora Stool</span></div>
+            </div>
+            <div class="strip-item">
+                <img src="/Huni/assets/bench/Orvia.png"
+                    alt="Japandi style Orvia bench combining Japanese aesthetics with Scandinavian functionality"
+                    loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Orvia Bench</span></div>
+            </div>
+            <div class="strip-item">
+                <img src="/Huni/assets/bstool/Wisbon Stool.png"
+                    alt="Minimalist Wisbon stool with natural wood grain and linen upholstery option" loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Wisbon Stool</span></div>
+            </div>
+            <div class="strip-item">
+                <img src="/Huni/assets/bench/Aurelia.png"
+                    alt="Timeless Aurelia bench featuring hand-finished walnut wood and premium materials"
+                    loading="lazy">
+                <div class="life-overlay"><span class="life-caption">Aurelia Bench</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-new">
+        <div class="footer-new-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">Huni</span>
+                <p class="footer-tagline">Handcrafted Japandi furniture for homes that live peacefully and meaningfully.
+                    Made in Indonesia, for the world.</p>
+                <div class="footer-social">
+                    <a href="https://wa.me/6285190645445" target="_blank" class="social-btn" title="WhatsApp">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                        WhatsApp
+                    </a>
+                    <a href="https://www.instagram.com/hunifurniture/" target="_blank" class="social-btn"
+                        title="Instagram">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                        Instagram
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61582639476932#" target="_blank" class="social-btn"
+                        title="Facebook">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                        Facebook
+                    </a>
+                    <a href="https://tiktok.com/@Hunifurniture" target="_blank" class="social-btn" title="TikTok">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                        </svg>
+                        TikTok
+                    </a>
+                </div>
+            </div>
+            <div class="footer-contact-area">
+                <h5>Contact Us</h5>
+                <div class="contact-links">
+                    <a href="https://wa.me/6285190645445" target="_blank" class="contact-link">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                        +62 851-9064-5445
+                        <span class="contact-platform">WhatsApp</span>
+                    </a>
+                    <a href="https://instagram.com/hunifurniture" target="_blank" class="contact-link">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                        @hunifurniture
+                        <span class="contact-platform">Instagram</span>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61582639476932#" target="_blank"
+                        class="contact-link">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                        Huni Furniture
+                        <span class="contact-platform">Facebook</span>
+                    </a>
+                    <a href="https://tiktok.com/@hunifurniture" target="_blank" class="contact-link">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                        </svg>
+                        @hunifurniture
+                        <span class="contact-platform">TikTok</span>
+                    </a>
+                    <a href="mailto:furniturehuni@gmail.com" class="contact-link">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                        furniturehuni@gmail.com
+                        <span class="contact-platform">Email</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-new-bottom">
+            <p class="footer-copy">© 2025 Huni Furniture. All rights reserved.</p>
+            <p class="footer-copy">Handcrafted with ❤ in Indonesia</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.getElementById('hamburger');
+            menu.classList.toggle('open');
+            btn.classList.toggle('open');
+            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+        }
+        function closeMobile() {
+            document.getElementById('mobileMenu').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.product-card, .life-item, .stat-item, .mat-item, .masonry-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
